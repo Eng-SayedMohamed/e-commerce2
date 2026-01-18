@@ -4,10 +4,11 @@ import { Navbar } from "./layout/navbar/navbar";
 import { Footer } from "./layout/footer/footer";
 import { initFlowbite } from 'flowbite';
 import { FlowbiteService } from './Core/Services/flowbite/flowbite';
+import { Home } from "./Pages/home/home";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
