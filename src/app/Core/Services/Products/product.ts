@@ -6,9 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Product {
-  private readonly httpClient = inject(HttpClient)
+  private readonly httpClient = inject(HttpClient);
 
-  getProduct():Observable<any>{
-    return this.httpClient.get('https://fakestoreapi.com/products')
+  getProduct(): Observable<any> {
+    return this.httpClient.get('https://fakestoreapi.com/products');
+  }
+  getSingleProduct(id: string): Observable<any> {
+    return this.httpClient.get(`https://fakestoreapi.com/products/${id}`);
   }
 }
