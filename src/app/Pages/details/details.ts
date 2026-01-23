@@ -14,6 +14,7 @@ export class Details implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
   id: WritableSignal<string | null> = signal(null);
   productData: WritableSignal<SingleProduct> = signal({} as SingleProduct);
+  counter: WritableSignal<number> = signal(1);
   ngOnInit(): void {
     this.getId();
   }
@@ -30,8 +31,13 @@ export class Details implements OnInit {
     this.product.getSingleProduct(this.id()!).subscribe({
       next: (res) => {
         this.productData.set(res);
-        console.log(res);
       },
     });
+  }
+  plus() {
+    this.counter.update((value) => value + 1);
+  }
+  minus() {
+    this.counter.update((value) => value - 1);
   }
 }

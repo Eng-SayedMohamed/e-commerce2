@@ -1,5 +1,5 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-  @for (item of allProduct(); track item.id) {
+  @for (item of allProduct() | search: search.text(); track item.id) {
     <div class="rounded-md border border-gray-400 p-5">
       <a [routerLink]="['/details', item.id]">
         <img
@@ -63,6 +63,10 @@
           </button>
         </div>
       </div>
+    </div>
+  } @empty {
+    <div class="grid justify-center items-center">
+      <h1 class="text-center text-8xl font-semibold mx-auto inline-block">Not Found Product</h1>
     </div>
   }
 </div>
